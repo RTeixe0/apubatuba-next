@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #003c63;
+  --foreground: #ffffff;
+  --bg: #003c63;
+  --primary: #0077b6;
+  --accent: #ffd43b;
+  --text: #f8f9fa;
 }
 
 @theme inline {
@@ -12,15 +16,18 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
+  background-color: var(--bg);
   background: var(--background);
-  color: var(--foreground);
+  color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
+}
+@layer utilities {
+  .fade-up {
+    @apply opacity-0 translate-y-4 transition-all duration-700 ease-out;
+  }
+
+  .fade-up-active {
+    @apply opacity-100 translate-y-0;
+  }
 }
