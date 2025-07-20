@@ -1,115 +1,64 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+// src/pages/index.tsx
+import Head from "next/head";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { BotaoWhats } from "@/components/BotaoWhats";
+import { BackToTop } from "@/components/BackToTop";
+import Link from "next/link";
+import { apartamentos, Imovel } from "@/data/apartamentos";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+type Props = {
+  imovel: Imovel;
+};
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+export default function Home({ imovel }: Props) {
+  // Ordenar os apartamentos pela propriedade 'ordem'
+  const listaOrdenada = apartamentos.slice().sort((a, b) => a.ordem - b.ordem);
 
-export default function Home() {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <>
+      <Head>
+        <title>Sol & Mar Locação Temporada</title>
+        <meta
+          name="description"
+          content="Aluguel de apartamentos incríveis em Ubatuba com vista para o mar e conforto garantido. Conheça os imóveis disponíveis!"
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/pages/index.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+      </Head>
+      <Header />
+      <main className="min-h-screen bg-[var(--bg)] text-[var(--text)] py-10 px-4">
+        <section className="container mx-auto max-w-4xl text-center scroll-animate">
+          <h1 className="text-3xl font-bold text-[var(--accent)] mb-4">
+            Conheça nossos apartamentos
+          </h1>
+          <p className="text-base opacity-80 mb-10">
+            Escolha seu destino ideal e aproveite a melhor estadia em Ubatuba.
+          </p>
+        </section>
+
+        <section className="container mx-auto grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 scroll-animate max-w-6xl">
+          {listaOrdenada.map((ap) => (
+            <Link
+              key={ap.slug}
+              href={`/${ap.slug}`}
+              className="bg-white/5 rounded-xl shadow-md hover:scale-[1.02] transition-transform p-4 flex flex-col items-center text-center border border-white/10"
+            >
+              <img
+                src={`/assets/img/${ap.pasta}/${ap.prefixo}1.jpg`}
+                alt={`Imagem de capa do ${ap.nome}`}
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h2 className="text-lg font-semibold text-[var(--accent)]">
+                {ap.nome}
+              </h2>
+              <p className="text-sm text-[var(--text)] opacity-70 mt-1">
+                {ap.localizacao}
+              </p>
+            </Link>
+          ))}
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      <BackToTop />
+      <Footer />
+    </>
   );
 }
