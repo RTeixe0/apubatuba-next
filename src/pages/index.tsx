@@ -5,14 +5,12 @@ import { Footer } from "@/components/Footer";
 import { BotaoWhats } from "@/components/BotaoWhats";
 import { BackToTop } from "@/components/BackToTop";
 import Link from "next/link";
-import { apartamentos, Imovel } from "@/data/apartamentos";
+import Image from "next/image";
+import { apartamentos } from "@/data/apartamentos";
+import { Hero } from "@/components/Hero";
+import { motion } from "framer-motion";
 
-type Props = {
-  imovel: Imovel;
-};
-
-export default function Home({ imovel }: Props) {
-  // Ordenar os apartamentos pela propriedade 'ordem'
+export default function Home() {
   const listaOrdenada = apartamentos.slice().sort((a, b) => a.ordem - b.ordem);
 
   return (
@@ -24,39 +22,57 @@ export default function Home({ imovel }: Props) {
           content="Aluguel de apartamentos incríveis em Ubatuba com vista para o mar e conforto garantido. Conheça os imóveis disponíveis!"
         />
       </Head>
-      <Header />
-      <main className="min-h-screen bg-[var(--bg)] text-[var(--text)] py-10 px-4">
-        <section className="container mx-auto max-w-4xl text-center scroll-animate">
-          <h1 className="text-3xl font-bold text-[var(--accent)] mb-4">
-            Conheça nossos apartamentos
-          </h1>
-          <p className="text-base opacity-80 mb-10">
-            Escolha seu destino ideal e aproveite a melhor estadia em Ubatuba.
-          </p>
-        </section>
 
-        <section className="container mx-auto grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 scroll-animate max-w-6xl">
-          {listaOrdenada.map((ap) => (
+      <Header />
+      <Hero
+        titulo="Conheça nossos apartamentos"
+        subtitulo="Escolha seu destino ideal e aproveite a melhor estadia em Ubatuba."
+      />
+
+      <main className="min-h-screen bg-[var(--bg)] text-[var(--text)] px-4 pt-10">
+        <section className="container mx-auto grid gap-8 sm:grid-cols-2 md:grid-cols-3 scroll-animate max-w-6xl px-2">
+          {listaOrdenada.map((ap, index) => (
             <Link
               key={ap.slug}
               href={`/${ap.slug}`}
-              className="bg-white/5 rounded-xl shadow-md hover:scale-[1.02] transition-transform p-4 flex flex-col items-center text-center border border-white/10"
+              className={`group relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-[1.03]
+    ${
+      index < 3
+        ? "shadow-[0_0_30px_rgba(255,212,59,0.5),0_10px_45px_rgba(255,212,59,0.3)]"
+        : "shadow-[0_4px_30px_rgba(0,0,0,0.25)]"
+    } bg-white/5 backdrop-blur-lg border border-white/10`}
             >
-              <img
-                src={`/assets/img/${ap.pasta}/${ap.prefixo}1.jpg`}
-                alt={`Imagem de capa do ${ap.nome}`}
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              <h2 className="text-lg font-semibold text-[var(--accent)]">
-                {ap.nome}
-              </h2>
-              <p className="text-sm text-[var(--text)] opacity-70 mt-1">
-                {ap.localizacao}
-              </p>
+              {/* ANIMAÇÃO SOMENTE NO CONTEÚDO INTERNO */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
+              >
+                <div className="relative w-full h-48 md:h-52 lg:h-56">
+                  <Image
+                    src={`/assets/img/${ap.pasta}/${ap.prefixo}1.jpg`}
+                    alt={`Imagem de capa do ${ap.nome}`}
+                    width={400}
+                    height={240}
+                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105 group-hover:brightness-110"
+                  />
+                  <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/70 to-transparent text-white px-4 py-3">
+                    <h2 className="text-base md:text-lg font-semibold text-white drop-shadow-md">
+                      {ap.nome}
+                    </h2>
+                    <p className="text-xs md:text-sm opacity-90">
+                      {ap.localizacao}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
             </Link>
           ))}
         </section>
       </main>
+
+      <BotaoWhats msg="Olá! Seja muito bem-vindo(a)! 😊 Agradecemos pelo seu contato. Para que possamos atendê-lo(a) da melhor forma, poderia, por gentileza, informar o número de pessoas e a data desejada para a sua estadia?" />
       <BackToTop />
       <Footer />
     </>

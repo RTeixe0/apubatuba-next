@@ -12,16 +12,18 @@ export function Header() {
 
   return (
     <header className="flex flex-col items-center justify-center py-6 text-center transition-all duration-500">
-      <div className="rounded-full p-4 bg-[radial-gradient(circle,#003c63_50%,transparent_100%)] shadow-[0_0_20px_rgba(0,119,182,0.6)]">
-        <Image
-          src="/assets/img/logo.png"
-          alt="Logo Gaiotto"
-          width={200}
-          height={200}
-          className="rounded-full shadow-lg"
-          priority
-        />
-      </div>
+      <Link href="/" aria-label="Ir para a página inicial">
+        <div className="rounded-full p-4 bg-[radial-gradient(circle,#003c63_50%,transparent_100%)] shadow-[0_0_20px_rgba(0,119,182,0.6)] cursor-pointer hover:scale-105 transition-transform">
+          <Image
+            src="/assets/img/logo.png"
+            alt="Logo Gaiotto"
+            width={200}
+            height={200}
+            className="rounded-full shadow-lg"
+            priority
+          />
+        </div>
+      </Link>
 
       <div className="flex justify-center gap-8 my-6">
         {/* Instagram */}
@@ -102,21 +104,24 @@ export function Header() {
         </a>
       </div>
 
-      <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2 max-w-4xl px-4 text-[0.95rem] font-semibold">
-        {apartamentosOrdenados.map((apto) => (
-          <Link
-            key={apto.slug}
-            href={`/${apto.slug}`}
-            className={`transition px-3 py-1 rounded-md ${
-              asPath === `/${apto.slug}`
-                ? "bg-[#0077b6] text-white"
-                : "text-[#ffd43b] hover:underline"
-            }`}
-          >
-            {apto.nome}
-          </Link>
-        ))}
-      </nav>
+      {/* MENU DOS APTOS (somente fora da home) */}
+      {asPath !== "/" && (
+        <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2 max-w-4xl px-4 text-[0.95rem] font-semibold">
+          {apartamentosOrdenados.map((apto) => (
+            <Link
+              key={apto.slug}
+              href={`/${apto.slug}`}
+              className={`transition px-3 py-1 rounded-md ${
+                asPath === `/${apto.slug}`
+                  ? "bg-[#0077b6] text-white"
+                  : "text-[#ffd43b] hover:underline"
+              }`}
+            >
+              {apto.nome}
+            </Link>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }
