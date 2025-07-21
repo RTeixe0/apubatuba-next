@@ -54,19 +54,11 @@ export default function ApartamentoPage({ imovel }: Props) {
         />
       </motion.section>
 
-      {/* Galeria com animação */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.15, duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        <Gallery
-          pasta={imovel.pasta}
-          prefixo={imovel.prefixo}
-          total={imovel.galeria}
-        />
-      </motion.div>
+      <Gallery
+        pasta={imovel.pasta}
+        prefixo={imovel.prefixo}
+        total={imovel.galeria}
+      />
 
       {/* Mapa */}
       <motion.div
