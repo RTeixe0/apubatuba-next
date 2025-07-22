@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Image from "next/image";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
 type GalleryProps = {
   pasta: string;
@@ -65,6 +66,7 @@ export function Gallery({ pasta, prefixo, total }: GalleryProps) {
         index={index}
         close={() => setIndex(-1)}
         slides={slides}
+        plugins={[Zoom]}
       />
     </section>
   );
