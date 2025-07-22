@@ -19,14 +19,14 @@ export default function Home() {
         <title>Sol & Mar Locação Temporada</title>
         <meta
           name="description"
-          content="Aluguel de apartamentos incríveis em Ubatuba com vista para o mar e conforto garantido. Conheça os imóveis disponíveis!"
+          content="Aluguel de apartamentos incríveis em Praia Grande - Ubatuba com vista para o mar e conforto garantido. Conheça os imóveis disponíveis!"
         />
       </Head>
 
       <Header />
       <Hero
         titulo="Conheça nossos apartamentos"
-        subtitulo="Escolha seu destino ideal e aproveite a melhor estadia em Ubatuba."
+        subtitulo="Escolha seu destino ideal e aproveite a melhor estadia em Praia Grande - Ubatuba."
       />
 
       <main className="min-h-screen bg-[var(--bg)] text-[var(--text)] px-4 pt-10">
@@ -56,6 +56,7 @@ export default function Home() {
                     width={400}
                     height={240}
                     className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105 group-hover:brightness-110"
+                    priority
                   />
                   <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/70 to-transparent text-white px-4 py-3">
                     <h2 className="text-base md:text-lg font-semibold text-white drop-shadow-md">
