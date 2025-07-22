@@ -35,19 +35,19 @@ export default function Home() {
             <Link
               key={ap.slug}
               href={`/${ap.slug}`}
-              className={`group relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-[1.03]
-    ${
-      index < 3
-        ? "shadow-[0_0_30px_rgba(255,212,59,0.5),0_10px_45px_rgba(255,212,59,0.3)]"
-        : "shadow-[0_4px_30px_rgba(0,0,0,0.25)]"
-    } bg-white/5 backdrop-blur-lg border border-white/10`}
+              className="group block transition-transform duration-300 hover:scale-[1.03]"
             >
-              {/* ANIMAÇÃO SOMENTE NO CONTEÚDO INTERNO */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.2 }}
+                className={`relative rounded-2xl overflow-hidden 
+      ${
+        index < 3
+          ? "shadow-[0_0_30px_rgba(255,212,59,0.5),0_10px_45px_rgba(255,212,59,0.3)]"
+          : "shadow-[0_4px_30px_rgba(0,0,0,0.25)]"
+      }`}
               >
                 <div className="relative w-full h-48 md:h-52 lg:h-56">
                   <Image
