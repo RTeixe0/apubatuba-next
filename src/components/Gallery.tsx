@@ -67,6 +67,7 @@ export function Gallery({ pasta, prefixo, total }: GalleryProps) {
         close={() => setIndex(-1)}
         slides={slides}
         plugins={[Zoom]}
+        controller={{ closeOnBackdropClick: true }}
       />
     </section>
   );
