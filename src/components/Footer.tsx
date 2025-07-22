@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function Footer() {
   return (
-    <footer className="w-full bg-gradient-to-t from-[#003c63] to-[#00263e] text-[var(--text)] text-center px-4 pt-8 pb-4 shadow-inner scroll-animate">
+    <footer className="w-full bg-gradient-to-t from-[#003c63] to-[#00263e] text-[var(--text)] text-center px-12 pt-8 pb-20 shadow-inner scroll-animate">
       <div
         className="border-t border-white/20 w-full mb-6"
         role="presentation"
@@ -101,7 +101,7 @@ export function Footer() {
       </div>
 
       {/* Rodapé inferior */}
-      <div className="text-sm opacity-80 leading-relaxed mt-6 px-2">
+      <div className="text-sm  opacity-80 leading-relaxed mt-6 px-2">
         <address className="not-italic">
           © 2025{" "}
           <span className="font-semibold">ap_ubatuba_gisellypaulogaiotto</span>{" "}

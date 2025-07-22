@@ -14,16 +14,15 @@ export function BotaoWhats({ msg, phone = "5519997341037" }: BotaoWhatsProps) {
       target="_blank"
       rel="noopener noreferrer"
       className="
-        fixed bottom-20 left-1/2 -translate-x-1/2 z-[1000]
-        flex items-center gap-[0.8rem]
-        px-4 py-2
+        fixed bottom-22 right-2 z-[1000]
         bg-[#0077b6] hover:bg-[#005f8e]
         text-[#ffd43b]
-        font-bold text-[1.05rem] rounded-[12px]
-        shadow-md
+        p-3
+        rounded-full
+        shadow-lg
         transition-all duration-300
       "
-      style={{ fontFamily: "Poppins, sans-serif" }}
+      aria-label="Fale conosco no WhatsApp"
     >
       <Image
         src="/assets/img/whatsapp.svg"
@@ -31,8 +30,7 @@ export function BotaoWhats({ msg, phone = "5519997341037" }: BotaoWhatsProps) {
         width={24}
         height={24}
         className="w-6 h-6"
-      />{" "}
-      Quero reservar agora!
+      />
     </a>
   );
 }

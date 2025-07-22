@@ -21,10 +21,10 @@ export function BackToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-8 right-5 z-[1000] bg-[#0077b6] text-[#ffd43b] p-3 rounded-full shadow-lg hover:bg-[#005f8e] transition-all duration-300"
+      className="fixed bottom-7 right-2 z-[1000] bg-[#0077b6] text-[#ffd43b] p-3 rounded-full shadow-lg hover:bg-[#005f8e] transition-all duration-300"
       aria-label="Voltar ao topo"
     >
-      <ChevronUp className="w-5 h-5" />
+      <ChevronUp className="w-6 h-6" />
     </button>
   );
 }
