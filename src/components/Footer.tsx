@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
+
 
 export function Footer() {
   return (
-    <footer className="w-full bg-gradient-to-t from-[#003c63] to-[#00263e] text-[var(--text)] text-center px-12 pt-8 pb-20 shadow-inner scroll-animate">
+    <footer className="w-full bg-gradient-to-t from-[#003c63] to-[#00263e] text-[var(--text)] text-center px-12 pt-8 pb-10 shadow-inner scroll-animate">
       <div
         className="border-t border-white/20 w-full mb-6"
         role="presentation"
@@ -10,6 +12,7 @@ export function Footer() {
 
       <div className="flex flex-wrap justify-center items-center max-w-4xl mx-auto gap-6 pb-6">
         {/* Logo e Slogan */}
+        <Link href="/" aria-label="Ir para a página inicial">
         <div className="text-center flex-1 min-w-[250px] text-base">
           <div className="inline-block p-2 rounded-full bg-[radial-gradient(circle_at_center,_#003c63_50%,_transparent_100%)] shadow-[0_0_10px_rgba(0,119,182,0.6)] mb-2">
             <Image
@@ -25,7 +28,9 @@ export function Footer() {
             Hospedagem de qualidade em Ubatuba 🌴
           </p>
         </div>
+        </Link>
 
+        {/* Informações de contato */}
         {/* Redes sociais */}
         <div className="text-center flex-1 min-w-[250px] text-base">
           <p className="text-base opacity-85 mb-2 font-medium">
