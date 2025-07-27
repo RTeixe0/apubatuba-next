@@ -16,13 +16,22 @@ export default function Home() {
   return (
     <>
       <Head>
-        <link rel="icon" href="/assets/img/logo.png" type="image/png" />
-
-        <title>Ap Ubatuba Locação Temporada</title>
+        <title>
+          Aluguel de Apartamentos em Ubatuba | Ap Ubatuba Locação Temporada
+        </title>
         <meta
           name="description"
-          content="Aluguel de apartamentos incríveis em Praia Grande - Ubatuba com vista para o mar e conforto garantido. Conheça os imóveis disponíveis!"
+          content="Apartamentos para temporada em Ubatuba com vista para o mar. Conforto, segurança e localização excelente na Praia Grande."
         />
+        <meta property="og:title" content="Ap Ubatuba Locação Temporada" />
+        <meta
+          property="og:description"
+          content="Encontre o apartamento ideal para suas férias em Ubatuba. Veja fotos, localizações e reserve direto."
+        />
+        <meta property="og:image" content="/assets/img/logo.png" />
+        <meta property="og:url" content="https://apubatuba-next.vercel.app/" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://apubatuba-next.vercel.app/" />
       </Head>
 
       <Header />
