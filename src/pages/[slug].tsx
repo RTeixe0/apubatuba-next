@@ -10,6 +10,7 @@ import { BackToTop } from "@/components/BackToTop";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
+import Head from "next/head";
 
 type Props = {
   imovel: Imovel;
@@ -18,6 +19,36 @@ type Props = {
 export default function ApartamentoPage({ imovel }: Props) {
   return (
     <>
+      <Head>
+        <link rel="icon" href="/assets/img/logo.png" type="image/png" />
+
+        <title>{imovel.nome} | Ap Ubatuba Locação Temporada</title>
+        <meta
+          name="description"
+          content={`Veja detalhes do ${imovel.nome}, localizado em ${imovel.localizacao}. Acomodações confortáveis para sua estadia em Ubatuba.`}
+        />
+        <meta property="og:title" content={`${imovel.nome} | Ap Ubatuba`} />
+        <meta
+          property="og:description"
+          content={`Confira fotos e localização do ${imovel.nome} para aluguel de temporada em Ubatuba.`}
+        />
+        <meta
+          property="og:image"
+          content={`https://apubatuba-next.vercel.app/assets/img/${imovel.pasta}/${imovel.prefixo}1.jpg`}
+        />
+        <meta
+          property="og:url"
+          content={`https://apubatuba-next.vercel.app/${imovel.slug}`}
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charSet="UTF-8" />
+        <link
+          rel="canonical"
+          href={`https://apubatuba-next.vercel.app/${imovel.slug}`}
+        />
+      </Head>
+
       <Header />
       <Hero titulo={imovel.nome} subtitulo={imovel.localizacao} />
 

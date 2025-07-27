@@ -16,7 +16,9 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Sol & Mar Locação Temporada</title>
+        <link rel="icon" href="/assets/img/logo.png" type="image/png" />
+
+        <title>Ap Ubatuba Locação Temporada</title>
         <meta
           name="description"
           content="Aluguel de apartamentos incríveis em Praia Grande - Ubatuba com vista para o mar e conforto garantido. Conheça os imóveis disponíveis!"
