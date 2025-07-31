@@ -34,18 +34,18 @@ export default function ApartamentoPage({ imovel }: Props) {
         />
         <meta
           property="og:image"
-          content={`https://apubatuba-next.vercel.app/assets/img/${imovel.pasta}/${imovel.prefixo}1.jpg`}
+          content={`https://www.apubatubapraiagrande.com.br/assets/img/${imovel.pasta}/${imovel.prefixo}1.jpg`}
         />
         <meta
           property="og:url"
-          content={`https://apubatuba-next.vercel.app/${imovel.slug}`}
+          content={`https://www.apubatubapraiagrande.com.br/${imovel.slug}`}
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charSet="UTF-8" />
         <link
           rel="canonical"
-          href={`https://apubatuba-next.vercel.app/${imovel.slug}`}
+          href={`https://www.apubatubapraiagrande.com.br/${imovel.slug}`}
         />
       </Head>
 

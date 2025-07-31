@@ -29,9 +29,12 @@ export default function Home() {
           content="Encontre o apartamento ideal para suas férias em Ubatuba. Veja fotos, localizações e reserve direto."
         />
         <meta property="og:image" content="/assets/img/logo.png" />
-        <meta property="og:url" content="https://apubatuba-next.vercel.app/" />
+        <meta
+          property="og:url"
+          content="https://www.apubatubapraiagrande.com.br/"
+        />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://apubatuba-next.vercel.app/" />
+        <link rel="canonical" href="https://www.apubatubapraiagrande.com.br/" />
       </Head>
 
       <Header />
