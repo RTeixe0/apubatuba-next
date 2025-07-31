@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://apubatuba-next.vercel.app",
+  siteUrl: "https://www.apubatubapraiagrande.com.br",
   generateRobotsTxt: true,
   sitemapSize: 5000,
   // 👇 Adiciona manualmente a homepage
