@@ -13,7 +13,7 @@ export default function Document() {
         <meta charSet="UTF-8" />
         <meta name="theme-color" content="#003c63" />
 
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/assets/img/logo.png" type="image/png" />
       </Head>
       <body className="antialiased">
         <Main />
