@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://apubatuba-next.vercel.app
+Host: https://www.apubatubapraiagrande.com.br
 
 # Sitemaps
-Sitemap: https://apubatuba-next.vercel.app/sitemap.xml
+Sitemap: https://www.apubatubapraiagrande.com.br/sitemap.xml

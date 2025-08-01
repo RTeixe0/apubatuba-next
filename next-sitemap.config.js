@@ -1,9 +1,8 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://www.apubatubapraiagrande.com.br",
+  siteUrl: "https://www.apubatubapraiagrande.com.br", // domínio correto
   generateRobotsTxt: true,
   sitemapSize: 5000,
-  // 👇 Adiciona manualmente a homepage
   additionalPaths: async (config) => [
     {
       loc: "/", // homepage
@@ -12,4 +11,13 @@ module.exports = {
       lastmod: new Date().toISOString(),
     },
   ],
+  robotsTxtOptions: {
+    policies: [
+      {
+        userAgent: "*",
+        allow: "/", // permite indexação total
+      },
+    ],
+    additionalSitemaps: ["https://www.apubatubapraiagrande.com.br/sitemap.xml"],
+  },
 };
