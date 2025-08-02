@@ -12,8 +12,8 @@ export default function Document() {
         {/* SEO técnico */}
         <meta charSet="UTF-8" />
         <meta name="theme-color" content="#003c63" />
-
-        <link rel="icon" href="/assets/img/logo.png" type="image/png" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
       </Head>
       <body className="antialiased">
         <Main />

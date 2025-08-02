@@ -21,6 +21,7 @@ export default function ApartamentoPage({ imovel }: Props) {
     <>
       <Head>
         <link rel="icon" href="/assets/img/logo.png" type="image/png" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
         <title>{imovel.nome} | Ap Ubatuba Locação Temporada</title>
         <meta

@@ -29,6 +29,8 @@ export default function Home() {
           content="Encontre o apartamento ideal para suas férias em Ubatuba. Veja fotos, localizações e reserve direto."
         />
         <meta property="og:image" content="/assets/img/logo.png" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
         <meta
           property="og:url"
           content="https://www.apubatubapraiagrande.com.br/"
