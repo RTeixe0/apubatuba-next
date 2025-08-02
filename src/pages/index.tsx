@@ -16,6 +16,7 @@ export default function Home() {
   return (
     <>
       <Head>
+        {/* 🏷️ Título e descrição da página */}
         <title>
           Aluguel de Apartamentos em Ubatuba | Ap Ubatuba Locação Temporada
         </title>
@@ -23,20 +24,49 @@ export default function Home() {
           name="description"
           content="Apartamentos para temporada em Ubatuba com vista para o mar. Conforto, segurança e localização excelente na Praia Grande."
         />
+
+        {/* 🤖 SEO técnico */}
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.apubatubapraiagrande.com.br/" />
+
+        {/* 📱 Ícones para navegador */}
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+
+        {/* 🌐 Open Graph - Facebook / WhatsApp / LinkedIn */}
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="pt_BR" />
         <meta property="og:title" content="Ap Ubatuba Locação Temporada" />
         <meta
           property="og:description"
           content="Encontre o apartamento ideal para suas férias em Ubatuba. Veja fotos, localizações e reserve direto."
         />
-        <meta property="og:image" content="/assets/img/logo.png" />
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
+        <meta
+          property="og:image"
+          content="https://www.apubatubapraiagrande.com.br/share-card.jpg"
+        />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta
           property="og:url"
           content="https://www.apubatubapraiagrande.com.br/"
         />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://www.apubatubapraiagrande.com.br/" />
+
+        {/* 🐦 Twitter Cards */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Ap Ubatuba Locação Temporada" />
+        <meta
+          name="twitter:description"
+          content="Apartamentos para alugar na Praia Grande em Ubatuba. Conforto, localização e praticidade."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.apubatubapraiagrande.com.br/share-card.jpg"
+        />
       </Head>
 
       <Header />

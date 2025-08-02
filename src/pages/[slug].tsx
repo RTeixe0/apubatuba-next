@@ -20,14 +20,32 @@ export default function ApartamentoPage({ imovel }: Props) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/assets/img/logo.png" type="image/png" />
+        {/* 🔍 Ícones para navegadores */}
+        <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
 
+        {/* 🏷️ Título dinâmico por imóvel */}
         <title>{imovel.nome} | Ap Ubatuba Locação Temporada</title>
+
+        {/* 📄 Meta descrição — ajuda no Google */}
         <meta
           name="description"
           content={`Veja detalhes do ${imovel.nome}, localizado em ${imovel.localizacao}. Acomodações confortáveis para sua estadia em Ubatuba.`}
         />
+
+        {/* 🧠 SEO técnico */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charSet="UTF-8" />
+        <meta name="robots" content="index, follow" />
+        <link
+          rel="canonical"
+          href={`https://www.apubatubapraiagrande.com.br/${imovel.slug}`}
+        />
+
+        {/* 🌐 Open Graph (WhatsApp, Facebook, LinkedIn) */}
+        <meta property="og:type" content="article" />
+        <meta property="og:locale" content="pt_BR" />
         <meta property="og:title" content={`${imovel.nome} | Ap Ubatuba`} />
         <meta
           property="og:description"
@@ -37,16 +55,24 @@ export default function ApartamentoPage({ imovel }: Props) {
           property="og:image"
           content={`https://www.apubatubapraiagrande.com.br/assets/img/${imovel.pasta}/${imovel.prefixo}1.jpg`}
         />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="800" />
         <meta
           property="og:url"
           content={`https://www.apubatubapraiagrande.com.br/${imovel.slug}`}
         />
-        <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta charSet="UTF-8" />
-        <link
-          rel="canonical"
-          href={`https://www.apubatubapraiagrande.com.br/${imovel.slug}`}
+
+        {/* 🐦 Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${imovel.nome} | Ap Ubatuba`} />
+        <meta
+          name="twitter:description"
+          content={`Confira fotos, localização e detalhes do ${imovel.nome} para temporada em Ubatuba.`}
+        />
+        <meta
+          name="twitter:image"
+          content={`https://www.apubatubapraiagrande.com.br/assets/img/${imovel.pasta}/${imovel.prefixo}1.jpg`}
         />
       </Head>
 
