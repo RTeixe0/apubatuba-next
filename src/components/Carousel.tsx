@@ -24,7 +24,7 @@ export function Carousel({ pasta, prefixo, total, slug }: CarouselProps) {
       <div className="container mx-auto max-w-4xl px-4">
         <Swiper
           key={slug}
-          modules={[Navigation, Pagination, Autoplay]}
+          modules={[Navigation, Autoplay]}
           loop
           autoplay={{ delay: 4000, disableOnInteraction: false }}
           pagination={{ clickable: true }}
