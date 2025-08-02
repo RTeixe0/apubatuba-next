@@ -46,7 +46,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://www.apubatubapraiagrande.com.br/share-card.jpg"
+          content="https://www.apubatubapraiagrande.com.br/share-card.jpg?v=2"
         />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1200" />
