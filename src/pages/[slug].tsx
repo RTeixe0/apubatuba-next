@@ -20,10 +20,21 @@ export default function ApartamentoPage({ imovel }: Props) {
   return (
     <>
       <Head>
-        {/* 🔍 Ícones para navegadores */}
-        <link rel="icon" href="/favicon.png" type="image/png" />
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
+        {/* 🔍 Favicons e manifest (usado por todos os imóveis) */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-96x96.png"
+          sizes="96x96"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/favicon-180x180.png"
+          sizes="180x180"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#003c63" />
 
         {/* 🏷️ Título dinâmico por imóvel */}
         <title>{imovel.nome} | Ap Ubatuba Locação Temporada</title>

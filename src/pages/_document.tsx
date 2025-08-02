@@ -8,10 +8,20 @@ export default function Document() {
         <meta charSet="UTF-8" />
         <meta name="theme-color" content="#003c63" />
 
-        {/* 📱 Ícones para todos os dispositivos */}
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
+        {/* 📱 Favicons e Touch Icons */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-96x96.png"
+          sizes="96x96"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/favicon-180x180.png"
+          sizes="180x180"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
 
         {/* 🚀 Pré-carregamento opcional para performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
