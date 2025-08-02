@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://www.apubatubapraiagrande.com.br", // domínio correto
+  siteUrl: "https://apubatubapraiagrande.com.br", // domínio correto
   generateRobotsTxt: true,
   sitemapSize: 5000,
   additionalPaths: async (config) => [
