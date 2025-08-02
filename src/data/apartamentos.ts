@@ -19,7 +19,7 @@ export const apartamentos: Imovel[] = [
     nome: "Costa Atlântica - Cobertura",
     localizacao: "Praia Grande • Ubatuba - SP",
     mapa: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d775.297645715209!2d-45.06861474630923!3d-23.473106732947077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cd53e4c3f8fcb7%3A0x5ce50279c268479a!2sCondominio%20Costa%20Atlantica!5e1!3m2!1spt-BR!2sbr!4v1750516002929!5m2!1spt-BR!2sbr",
-    galeria: 24,
+    galeria: 28,
     pasta: "cacobertura",
     prefixo: "caco",
     whatsappMsg:
