@@ -18,6 +18,5 @@ module.exports = {
         allow: "/", // permite indexação total
       },
     ],
-    additionalSitemaps: ["https://www.apubatubapraiagrande.com.br/sitemap.xml"],
   },
 };
