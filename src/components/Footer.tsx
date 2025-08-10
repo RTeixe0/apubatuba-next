@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-
 export function Footer() {
   return (
     <footer className="w-full bg-gradient-to-t from-[#003c63] to-[#00263e] text-[var(--text)] text-center px-12 pt-8 pb-10 shadow-inner scroll-animate">
@@ -13,21 +12,21 @@ export function Footer() {
       <div className="flex flex-wrap justify-center items-center max-w-4xl mx-auto gap-6 pb-6">
         {/* Logo e Slogan */}
         <Link href="/" aria-label="Ir para a página inicial">
-        <div className="text-center flex-1 min-w-[250px] text-base">
-          <div className="inline-block p-2 rounded-full bg-[radial-gradient(circle_at_center,_#003c63_50%,_transparent_100%)] shadow-[0_0_10px_rgba(0,119,182,0.6)] mb-2">
-            <Image
-              src="/assets/img/logo.png"
-              alt="Logo do ap_ubatuba_gisellypaulogaiotto"
-              width={90}
-              height={90}
-              className="rounded-full mx-auto drop-shadow"
-              loading="lazy"
-            />
+          <div className="text-center flex-1 min-w-[250px] text-base">
+            <div className="inline-block p-2 rounded-full bg-[radial-gradient(circle_at_center,_#003c63_50%,_transparent_100%)] shadow-[0_0_10px_rgba(0,119,182,0.6)] mb-2">
+              <Image
+                src="/assets/img/logo.png"
+                alt="Logo do ap_ubatuba_gisellypaulogaiotto"
+                width={90}
+                height={90}
+                className="rounded-full mx-auto drop-shadow"
+                loading="lazy"
+              />
+            </div>
+            <p className="text-base opacity-85 mt-2 font-medium">
+              Hospedagem de qualidade em Ubatuba 🌴
+            </p>
           </div>
-          <p className="text-base opacity-85 mt-2 font-medium">
-            Hospedagem de qualidade em Ubatuba 🌴
-          </p>
-        </div>
         </Link>
 
         {/* Informações de contato */}
@@ -101,6 +100,36 @@ export function Footer() {
                 />
               </svg>
             </a>
+            {/* Share */}
+            <button
+              onClick={async () => {
+                if (navigator.share) {
+                  try {
+                    await navigator.share({
+                      title: document.title,
+                      text: "Confira este apartamento incrível em Ubatuba!",
+                      url: window.location.href,
+                    });
+                  } catch (err) {
+                    console.error("Erro ao compartilhar:", err);
+                  }
+                } else {
+                  await navigator.clipboard.writeText(window.location.href);
+                  alert("Link copiado para a área de transferência!");
+                }
+              }}
+              aria-label="Compartilhar"
+              className="text-[#ffd43b] hover:scale-110 transition-transform"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                className="w-7 h-7"
+                fill="currentColor"
+              >
+                <path d="M11.293 2.293a1 1 0 0 1 1.414 0l3 3a1 1 0 0 1-1.414 1.414L13 5.414V15a1 1 0 1 1-2 0V5.414L9.707 6.707a1 1 0 0 1-1.414-1.414l3-3zM4 11a2 2 0 0 1 2-2h2a1 1 0 0 1 0 2H6v9h12v-9h-2a1 1 0 1 1 0-2h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-9z" />{" "}
+              </svg>
+            </button>
           </div>
         </div>
       </div>
