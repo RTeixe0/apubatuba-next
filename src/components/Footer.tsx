@@ -84,6 +84,7 @@ export function Footer() {
                 />
               </svg>
             </a>
+            {/* 
             <a
               href="https://linktr.ee/ap_ubatuba_gisellypaulogaiotto"
               target="_blank"
@@ -100,6 +101,7 @@ export function Footer() {
                 />
               </svg>
             </a>
+            */}
             {/* Share */}
             <button
               onClick={async () => {
