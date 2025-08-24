@@ -8,18 +8,18 @@ export function OndeEstamos() {
   return (
     <section
       aria-labelledby="onde-estamos-title"
-      className="max-w-6xl mx-auto px-4 mt-8"
+      className="max-w-6xl mx-auto px-2 mt-8"
     >
       <h3
         id="onde-estamos-title"
-        className="text-base sm:text-lg md:text-xl font-semibold text-[var(--text)] mb-1.5"
+        className="text-base sm:text-lg md:text-xl font-semibold text-[var(--text)] mb-1.5 text-center"
       >
         Onde estamos em Ubatuba
       </h3>
 
       {/* Mobile: mapa mais alto (16/11). Desktop: panorâmico. Sombra/borda só a partir de sm */}
       <div className="rounded-xl sm:rounded-2xl overflow-hidden sm:ring-1 sm:ring-white/10 sm:shadow-[0_8px_25px_rgba(0,0,0,0.25)]">
-        <div className="aspect-[16/11] sm:aspect-[16/9] lg:aspect-[28/9]">
+        <div className="aspect-[14/10] sm:aspect-[16/9] lg:aspect-[28/9]">
           <iframe
             title="Mapa de localização - Praia Grande, Ubatuba"
             src={src}
