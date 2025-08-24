@@ -9,6 +9,8 @@ import Image from "next/image";
 import { apartamentos } from "@/data/apartamentos";
 import { Hero } from "@/components/Hero";
 import { motion } from "framer-motion";
+import WeatherCard from "@/components/WeatherCard";
+import { OndeEstamos } from "@/components/OndeEstamos";
 
 export default function Home() {
   const listaOrdenada = apartamentos.slice().sort((a, b) => a.ordem - b.ordem);
@@ -86,6 +88,9 @@ export default function Home() {
         titulo="Conheça nossos apartamentos"
         subtitulo="Escolha seu destino ideal e aproveite a melhor estadia em Praia Grande - Ubatuba."
       />
+      <div className="px-4 mt-6">
+        <WeatherCard />
+      </div>
 
       <main className="min-h-screen bg-[var(--bg)] text-[var(--text)] px-4 pt-10">
         <section className="container mx-auto grid gap-8 sm:grid-cols-2 md:grid-cols-3 scroll-animate max-w-6xl px-2">
@@ -130,7 +135,9 @@ export default function Home() {
           ))}
         </section>
       </main>
-
+      <div className="px-4 mt-6">
+        <OndeEstamos />
+      </div>
       <BotaoWhats msg="Olá! Seja muito bem-vindo(a)! 😊 Agradecemos pelo seu contato. Para que possamos atendê-lo(a) da melhor forma, poderia, por gentileza, informar o número de pessoas e a data desejada para a sua estadia?" />
       <BackToTop />
       <Footer />

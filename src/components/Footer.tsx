@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="w-full bg-gradient-to-t from-[#003c63] to-[#00263e] text-[var(--text)] text-center px-12 pt-8 pb-10 shadow-inner scroll-animate">
+    <footer className="w-full mt-15 bg-gradient-to-t from-[#003c63] to-[#00263e] text-[var(--text)] text-center px-12 pt-8 pb-10 shadow-inner scroll-animate">
       <div
         className="border-t border-white/20 w-full mb-6"
         role="presentation"
