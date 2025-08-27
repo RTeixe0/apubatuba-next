@@ -5,6 +5,7 @@ import Head from "next/head";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { pageview, trackLinkClick, trackButtonClick } from "@/lib/gtag";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -53,7 +54,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-
+      <Analytics />
       <Component {...pageProps} />
     </>
   );
