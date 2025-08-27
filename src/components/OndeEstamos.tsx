@@ -10,12 +10,12 @@ export function OndeEstamos() {
       aria-labelledby="onde-estamos-title"
       className="max-w-6xl mx-auto px-2 mt-8"
     >
-      <h3
+      <h2
         id="onde-estamos-title"
-        className="text-base sm:text-lg md:text-xl font-semibold text-[var(--text)] mb-1.5 text-center"
+        className="text-2xl text-center font-bold text-[#ffd43b] mb-6"
       >
         Onde estamos em Ubatuba
-      </h3>
+      </h2>
 
       {/* Mobile: mapa mais alto (16/11). Desktop: panorâmico. Sombra/borda só a partir de sm */}
       <div className="rounded-xl sm:rounded-2xl overflow-hidden sm:ring-1 sm:ring-white/10 sm:shadow-[0_8px_25px_rgba(0,0,0,0.25)]">
