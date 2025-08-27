@@ -41,7 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
       }
     };
 
-    // capture:true garante que pegamos o clique antes de navegação
+    // capture:true garante que pegamos o clique antes da navegação
     document.addEventListener("click", handler, { capture: true });
     return () =>
       document.removeEventListener("click", handler, { capture: true });

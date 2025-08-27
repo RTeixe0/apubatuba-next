@@ -9,13 +9,16 @@ export const hasGA = (): boolean =>
 /** Pageview em mudanças de rota */
 export const pageview = (url: string): void => {
   if (!hasGA()) return;
-  (window.gtag as GtagFn)("config", GA_ID, { page_path: url });
+  window.gtag!("config", GA_ID, { page_path: url });
 };
 
 /** Eventos customizados */
-export const event = (name: string, params: GtagEventParams = {}): void => {
+export const event = (
+  name: string,
+  params: Record<string, unknown> = {}
+): void => {
   if (!hasGA()) return;
-  (window.gtag as GtagFn)("event", name, params);
+  window.gtag!("event", name, params);
 };
 
 // ------------- Helpers de classificação -------------
@@ -87,7 +90,7 @@ export const trackLinkClick = (a: HTMLAnchorElement): void => {
   const text = safeText(a);
   const info = datasetInfo(a);
 
-  const params: GtagEventParams = {
+  const params = {
     link_url: href,
     link_text: text,
     is_external: isExternalUrl(href),
@@ -107,7 +110,7 @@ export const trackButtonClick = (btn: HTMLButtonElement): void => {
   const text = safeText(btn);
   const info = datasetInfo(btn);
 
-  const params: GtagEventParams = {
+  const params = {
     button_text: text,
     button_id: btn.id || undefined,
     location: whereInLayout(btn),
