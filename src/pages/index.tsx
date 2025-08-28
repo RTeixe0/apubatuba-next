@@ -116,10 +116,17 @@ export default function Home() {
                   <Image
                     src={`/assets/img/${ap.pasta}/${ap.prefixo}1.jpg`}
                     alt={`Imagem de capa do ${ap.nome}`}
-                    width={400}
-                    height={240}
+                    width={1200} // largura "máxima" da fonte (arbitrária alta)
+                    height={800} // mantenha a proporção (ex.: 3:2, 16:9…)
+                    sizes="(max-width: 640px) 100vw,
+         (max-width: 1152px) 50vw,
+         33vw"
+                    quality={75}
                     className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105 group-hover:brightness-110"
-                    priority
+                    priority={index === 0} // só o primeiro card acima da dobra como prioridade
+                    fetchPriority="high"
+                    placeholder="blur" // opcional: se tiver blurDataURL
+                    blurDataURL="/assets/img/blur-placeholder.jpg" // opcional
                   />
                   <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/70 to-transparent text-white px-4 py-3">
                     <h2 className="text-base md:text-lg font-semibold text-white drop-shadow-md">
