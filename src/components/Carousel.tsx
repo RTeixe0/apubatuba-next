@@ -15,7 +15,7 @@ type CarouselProps = {
 export function Carousel({ pasta, prefixo, total, slug }: CarouselProps) {
   const imagens = Array.from({ length: total }, (_, i) => {
     const numero = i + 1;
-    const src = `/assets/img/${pasta}/${prefixo}${numero}.jpg`;
+    const src = `/assets/img/${pasta}/${prefixo}${numero}.webp`;
     return { src, alt: `Imagem ${numero}` };
   });
 

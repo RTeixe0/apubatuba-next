@@ -17,7 +17,7 @@ export function Gallery({ pasta, prefixo, total }: GalleryProps) {
   const slides = useMemo(
     () =>
       Array.from({ length: total }, (_, i) => ({
-        src: `/assets/img/${pasta}/${prefixo}${i + 1}.jpg`,
+        src: `/assets/img/${pasta}/${prefixo}${i + 1}.webp`,
         alt: `Foto ${i + 1}`,
       })),
     [pasta, prefixo, total]

@@ -47,7 +47,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   // Imóveis
   for (const ap of apartamentos) {
     const loc = `${BASE_URL}/${ap.slug}`;
-    const imgCover = `${BASE_URL}/assets/img/${ap.pasta}/${ap.prefixo}1.jpg`; 
+    const imgCover = `${BASE_URL}/assets/img/${ap.pasta}/${ap.prefixo}1.webp`; 
     urls.push(
       generateUrlTag(loc, nowIso, "weekly", "0.7", [
         { loc: imgCover, title: ap.nome, caption: `Fotos do ${ap.nome} em ${ap.localizacao}` },

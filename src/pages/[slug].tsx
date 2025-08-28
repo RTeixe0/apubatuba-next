@@ -64,9 +64,9 @@ export default function ApartamentoPage({ imovel }: Props) {
         />
         <meta
           property="og:image"
-          content={`https://apubatubapraiagrande.com.br/assets/img/${imovel.pasta}/${imovel.prefixo}1.jpg`}
+          content={`https://apubatubapraiagrande.com.br/assets/img/${imovel.pasta}/${imovel.prefixo}1.webp`}
         />
-        <meta property="og:image:type" content="image/jpg" />
+        <meta property="og:image:type" content="image/webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="800" />
         <meta
@@ -83,7 +83,7 @@ export default function ApartamentoPage({ imovel }: Props) {
         />
         <meta
           name="twitter:image"
-          content={`https://apubatubapraiagrande.com.br/assets/img/${imovel.pasta}/${imovel.prefixo}1.jpg`}
+          content={`https://apubatubapraiagrande.com.br/assets/img/${imovel.pasta}/${imovel.prefixo}1.webp`}
         />
       </Head>
 
