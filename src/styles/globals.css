@@ -9,7 +9,7 @@
   --text: #f8f9fa;
 }
 
-@theme inline {
+:root {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -24,10 +24,15 @@ body {
 }
 @layer utilities {
   .fade-up {
-    @apply opacity-0 translate-y-4 transition-all duration-700 ease-out;
+    opacity: 0;
+    transform: translateY(1rem);
+    transition-property: all;
+    transition-duration: 700ms;
+    transition-timing-function: ease-out;
   }
 
   .fade-up-active {
-    @apply opacity-100 translate-y-0;
+    opacity: 1;
+    transform: translateY(0);
   }
 }

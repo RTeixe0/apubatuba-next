@@ -46,13 +46,6 @@ export default function Document() {
           href="https://fonts.gstatic.com"
           crossOrigin=""
         />
-        <link
-          rel="preload"
-          href="/fonts/Orbitron.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin=""
-        />
 
         {/* 📈 Google Analytics 4 (global) */}
         <script

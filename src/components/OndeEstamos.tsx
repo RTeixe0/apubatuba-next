@@ -31,16 +31,6 @@ export function OndeEstamos() {
         </div>
       </div>
 
-      <div className="mt-2">
-        <a
-          href="https://maps.google.com/?q=Praia+Grande,+Ubatuba,+SP"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs sm:text-sm underline text-white/80 hover:text-white"
-        >
-          
-        </a>
-      </div>
     </section>
   );
 }

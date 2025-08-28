@@ -81,9 +81,9 @@ export default function WeatherCard() {
     >
       {/* Cabeçalho minimalista (sem barra/amarelo) */}
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2 sm:mb-3">
-        <h3 className="text-sm sm:text-base md:text-lg font-semibold text-[var(--text)]">
+        <h2 className="text-sm sm:text-base md:text-lg font-semibold text-[var(--text)]">
           Previsão do tempo
-        </h3>
+        </h2>
         <span className="text-white/60 text-xs sm:text-sm truncate">
           {data.location}
         </span>
