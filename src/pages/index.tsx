@@ -31,7 +31,7 @@ export default function Home() {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://www.apubatubapraiagrande.com.br/" />
+        <link rel="canonical" href="https://apubatubapraiagrande.com.br/" />
 
         {/* 📱 Ícones para navegador e dispositivos */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -60,14 +60,14 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://www.apubatubapraiagrande.com.br/share-card.jpg?v=2"
+          content="https://apubatubapraiagrande.com.br/share-card.webp"
         />
-        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:type" content="image/webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta
           property="og:url"
-          content="https://www.apubatubapraiagrande.com.br/"
+          content="https://apubatubapraiagrande.com.br/"
         />
 
         {/* 🐦 Twitter Cards */}
@@ -79,7 +79,7 @@ export default function Home() {
         />
         <meta
           name="twitter:image"
-          content="https://www.apubatubapraiagrande.com.br/share-card.jpg"
+          content="https://apubatubapraiagrande.com.br/share-card.webp"
         />
       </Head>
 

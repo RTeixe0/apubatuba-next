@@ -51,7 +51,7 @@ export default function ApartamentoPage({ imovel }: Props) {
         <meta name="robots" content="index, follow" />
         <link
           rel="canonical"
-          href={`https://www.apubatubapraiagrande.com.br/${imovel.slug}`}
+          href={`https://apubatubapraiagrande.com.br/${imovel.slug}`}
         />
 
         {/* 🌐 Open Graph (WhatsApp, Facebook, LinkedIn) */}
@@ -64,14 +64,14 @@ export default function ApartamentoPage({ imovel }: Props) {
         />
         <meta
           property="og:image"
-          content={`https://www.apubatubapraiagrande.com.br/assets/img/${imovel.pasta}/${imovel.prefixo}1.jpg`}
+          content={`https://apubatubapraiagrande.com.br/assets/img/${imovel.pasta}/${imovel.prefixo}1.jpg`}
         />
-        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:type" content="image/jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="800" />
         <meta
           property="og:url"
-          content={`https://www.apubatubapraiagrande.com.br/${imovel.slug}`}
+          content={`https://apubatubapraiagrande.com.br/${imovel.slug}`}
         />
 
         {/* 🐦 Twitter Card */}
@@ -83,7 +83,7 @@ export default function ApartamentoPage({ imovel }: Props) {
         />
         <meta
           name="twitter:image"
-          content={`https://www.apubatubapraiagrande.com.br/assets/img/${imovel.pasta}/${imovel.prefixo}1.jpg`}
+          content={`https://apubatubapraiagrande.com.br/assets/img/${imovel.pasta}/${imovel.prefixo}1.jpg`}
         />
       </Head>
 

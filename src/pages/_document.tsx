@@ -72,8 +72,8 @@ export default function Document() {
               "@type": "LodgingBusiness",
               name: "Ap Ubatuba Locação Temporada",
               alternateName: "Ap Ubatuba",
-              url: "https://www.apubatubapraiagrande.com.br/",
-              logo: "https://www.apubatubapraiagrande.com.br/favicon-180x180.png",
+              url: "https://apubatubapraiagrande.com.br/",
+              logo: "https://apubatubapraiagrande.com.br/favicon-180x180.png",
               areaServed: "Ubatuba, SP, Brasil",
               sameAs: [
                 "https://www.instagram.com/ap_ubatuba_gisellypaulogaiotto/",
