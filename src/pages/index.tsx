@@ -26,7 +26,6 @@ export default function Home() {
     itemListElement: listaOrdenada.map((ap, idx) => ({
       "@type": "ListItem",
       position: idx + 1,
-      url: `${siteUrl}${ap.slug}`,
       item: {
         "@type": "Apartment",
         name: ap.nome,

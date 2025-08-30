@@ -122,6 +122,16 @@ export default function Document() {
               logo: "https://apubatubapraiagrande.com.br/favicon-180x180.png",
               image: ["https://apubatubapraiagrande.com.br/share-card.webp"],
               photo: ["https://apubatubapraiagrande.com.br/share-card.webp"],
+
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Av. Atlântica, Praia Grande",
+                addressLocality: "Ubatuba",
+                addressRegion: "SP",
+                addressCountry: "BR",
+                postalCode: "11687-528",
+              },
+
               areaServed: "Ubatuba, SP, Brasil",
               sameAs: [
                 "https://www.instagram.com/ap_ubatuba_gisellypaulogaiotto/",
@@ -135,7 +145,7 @@ export default function Document() {
                   telephone: "+55 19 99734-1037",
                   availableLanguage: ["pt-BR"],
                   areaServed: "Ubatuba, SP, Brasil",
-                  url: "https://api.whatsapp.com/send/?phone=5519997341037&text=Ol%C3%A1%21+Seja+muito+bem-vindo%28a%29%21+%EF%BF%BD+Agradecemos+pelo+seu+contato.+Para+que+possamos+atend%C3%AA-lo%28a%29+da+melhor+forma%2C+poderia%2C+por+gentileza%2C+informar+o+n%C3%BAmero+de+pessoas+e+a+data+desejada+para+a+sua+estadia%3F&type=phone_number&app_absent=0",
+                  url: "https://api.whatsapp.com/send/?phone=5519997341037...",
                 },
               ],
             }),
