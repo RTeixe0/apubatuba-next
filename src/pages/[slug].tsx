@@ -139,6 +139,14 @@ export default function ApartamentoPage({ imovel }: Props) {
                 "@type": "LodgingBusiness",
                 name: "Ap Ubatuba Locação Temporada",
                 url: "https://apubatubapraiagrande.com.br/",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "Av. Atlântica, Praia Grande",
+                  addressLocality: "Ubatuba",
+                  addressRegion: "SP",
+                  postalCode: "11687-528",
+                  addressCountry: "BR",
+                },
               },
               mainEntityOfPage: canonical,
               primaryImageOfPage: {
