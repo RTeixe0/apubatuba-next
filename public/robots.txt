@@ -1,9 +1,8 @@
-# *
 User-agent: *
 Allow: /
 
 # Host
-Host: https://apubatubapraiagrande.com.br
+Host: apubatubapraiagrande.com.br
 
 # Sitemaps
 Sitemap: https://apubatubapraiagrande.com.br/sitemap.xml

@@ -9,6 +9,13 @@ export default function Document() {
       <Head>
         {/* 🧠 SEO técnico e acessibilidade */}
         <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Dica explícita para miniaturas grandes na SERP */}
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta
+          name="googlebot"
+          content="index, follow, max-image-preview:large"
+        />
         <meta name="theme-color" content="#003c63" />
         <meta name="color-scheme" content="light dark" />
         <meta
@@ -16,7 +23,6 @@ export default function Document() {
           content="telephone=no,address=no,email=no"
         />
         <meta name="referrer" content="origin-when-cross-origin" />
-        <meta name="robots" content="index, follow, max-image-preview:large" />
 
         {/* 📱 Favicons e PWA */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -47,7 +53,7 @@ export default function Document() {
           crossOrigin=""
         />
 
-        {/* 📈 Google Analytics 4 (global) */}
+        {/* 📈 Google Analytics 4 */}
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
@@ -63,7 +69,47 @@ export default function Document() {
           }}
         />
 
-        {/* 🏷️ JSON-LD (negócio de hospedagem) */}
+        {/* 🏷️ JSON-LD: Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Ap Ubatuba Locação Temporada",
+              url: "https://apubatubapraiagrande.com.br/",
+              logo: "https://apubatubapraiagrande.com.br/favicon-180x180.png",
+              image: ["https://apubatubapraiagrande.com.br/share-card.webp"],
+              sameAs: [
+                "https://www.instagram.com/ap_ubatuba_gisellypaulogaiotto/",
+                "https://www.facebook.com/gisellypaulo.gaiotto.7/",
+                "https://linktr.ee/ap_ubatuba_gisellypaulogaiotto",
+              ],
+            }),
+          }}
+        />
+
+        {/* 🏷️ JSON-LD: WebSite */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Ap Ubatuba",
+              url: "https://apubatubapraiagrande.com.br/",
+              inLanguage: "pt-BR",
+              potentialAction: {
+                "@type": "SearchAction",
+                target:
+                  "https://apubatubapraiagrande.com.br/?s={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
+
+        {/* 🏷️ JSON-LD: LodgingBusiness (negócio principal do site) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -74,6 +120,8 @@ export default function Document() {
               alternateName: "Ap Ubatuba",
               url: "https://apubatubapraiagrande.com.br/",
               logo: "https://apubatubapraiagrande.com.br/favicon-180x180.png",
+              image: ["https://apubatubapraiagrande.com.br/share-card.webp"],
+              photo: ["https://apubatubapraiagrande.com.br/share-card.webp"],
               areaServed: "Ubatuba, SP, Brasil",
               sameAs: [
                 "https://www.instagram.com/ap_ubatuba_gisellypaulogaiotto/",
@@ -94,6 +142,7 @@ export default function Document() {
           }}
         />
       </Head>
+
       <body className="antialiased">
         <Main />
         <NextScript />

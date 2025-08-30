@@ -1,4 +1,8 @@
+// src/pages/[slug].tsx
 import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
+import { motion } from "framer-motion";
+
 import { Hero } from "@/components/Hero";
 import { apartamentos, Imovel } from "@/data/apartamentos";
 import { Carousel } from "@/components/Carousel";
@@ -9,18 +13,25 @@ import { BotaoWhats } from "@/components/BotaoWhats";
 import { BackToTop } from "@/components/BackToTop";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { motion } from "framer-motion";
-import Head from "next/head";
 
 type Props = {
   imovel: Imovel;
 };
 
 export default function ApartamentoPage({ imovel }: Props) {
+  const canonical = `https://apubatubapraiagrande.com.br/${imovel.slug}`;
+  const heroImg = `https://apubatubapraiagrande.com.br/assets/img/${imovel.pasta}/${imovel.prefixo}1.webp`;
+  const galleryImages = Array.from({ length: imovel.galeria }).map(
+    (_, i) =>
+      `https://apubatubapraiagrande.com.br/assets/img/${imovel.pasta}/${
+        imovel.prefixo
+      }${i + 1}.webp`
+  );
+
   return (
     <>
       <Head>
-        {/* 🔍 Favicons e manifest (usado por todos os imóveis) */}
+        {/* 🔍 Favicons e manifest (comum a todos os imóveis) */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link
           rel="icon"
@@ -36,25 +47,25 @@ export default function ApartamentoPage({ imovel }: Props) {
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#003c63" />
 
-        {/* 🏷️ Título dinâmico por imóvel */}
+        {/* 🏷️ Título e descrição dinâmicos */}
         <title>{imovel.nome} | Ap Ubatuba Locação Temporada</title>
-
-        {/* 📄 Meta descrição — ajuda no Google */}
         <meta
           name="description"
           content={`Veja detalhes do ${imovel.nome}, localizado em ${imovel.localizacao}. Acomodações confortáveis para sua estadia em Ubatuba.`}
         />
 
         {/* 🧠 SEO técnico */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charSet="UTF-8" />
-        <meta name="robots" content="index, follow" />
-        <link
-          rel="canonical"
-          href={`https://apubatubapraiagrande.com.br/${imovel.slug}`}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {/* Miniaturas grandes na SERP */}
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta
+          name="googlebot"
+          content="index, follow, max-image-preview:large"
         />
+        <link rel="canonical" href={canonical} />
 
-        {/* 🌐 Open Graph (WhatsApp, Facebook, LinkedIn) */}
+        {/* 🌐 Open Graph */}
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="pt_BR" />
         <meta property="og:title" content={`${imovel.nome} | Ap Ubatuba`} />
@@ -62,17 +73,12 @@ export default function ApartamentoPage({ imovel }: Props) {
           property="og:description"
           content={`Confira fotos e localização do ${imovel.nome} para aluguel de temporada em Ubatuba.`}
         />
-        <meta
-          property="og:image"
-          content={`https://apubatubapraiagrande.com.br/assets/img/${imovel.pasta}/${imovel.prefixo}1.webp`}
-        />
+        <meta property="og:image" content={heroImg} />
+        <meta property="og:image:secure_url" content={heroImg} />
         <meta property="og:image:type" content="image/webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="800" />
-        <meta
-          property="og:url"
-          content={`https://apubatubapraiagrande.com.br/${imovel.slug}`}
-        />
+        <meta property="og:url" content={canonical} />
 
         {/* 🐦 Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -81,9 +87,70 @@ export default function ApartamentoPage({ imovel }: Props) {
           name="twitter:description"
           content={`Confira fotos, localização e detalhes do ${imovel.nome} para temporada em Ubatuba.`}
         />
+        <meta name="twitter:image" content={heroImg} />
         <meta
-          name="twitter:image"
-          content={`https://apubatubapraiagrande.com.br/assets/img/${imovel.pasta}/${imovel.prefixo}1.webp`}
+          name="twitter:image:alt"
+          content={`Foto do ${imovel.nome} em ${imovel.localizacao}`}
+        />
+
+        {/* 📚 JSON-LD: Breadcrumbs */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Início",
+                  item: "https://apubatubapraiagrande.com.br/",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: imovel.nome,
+                  item: canonical,
+                },
+              ],
+            }),
+          }}
+        />
+
+        {/* 🏠 JSON-LD: Apartment (principal desta página) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Apartment",
+              name: imovel.nome,
+              description: `Aluguel por temporada em Ubatuba – ${imovel.localizacao}.`,
+              url: canonical,
+              image: galleryImages,
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Ubatuba",
+                addressRegion: "SP",
+                addressCountry: "BR",
+              },
+              containedInPlace: {
+                "@type": "LodgingBusiness",
+                name: "Ap Ubatuba Locação Temporada",
+                url: "https://apubatubapraiagrande.com.br/",
+              },
+              mainEntityOfPage: canonical,
+              primaryImageOfPage: {
+                "@type": "ImageObject",
+                url: heroImg,
+                width: 1200,
+                height: 800,
+              },
+              thumbnailUrl: heroImg,
+              inLanguage: "pt-BR",
+            }),
+          }}
         />
       </Head>
 

@@ -1,19 +1,65 @@
 // src/pages/index.tsx
 import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BotaoWhats } from "@/components/BotaoWhats";
 import { BackToTop } from "@/components/BackToTop";
-import Link from "next/link";
-import Image from "next/image";
-import { apartamentos } from "@/data/apartamentos";
 import { Hero } from "@/components/Hero";
-import { motion } from "framer-motion";
 import WeatherCard from "@/components/WeatherCard";
 import { OndeEstamos } from "@/components/OndeEstamos";
+import { apartamentos } from "@/data/apartamentos";
 
 export default function Home() {
   const listaOrdenada = apartamentos.slice().sort((a, b) => a.ordem - b.ordem);
+
+  const siteUrl = "https://apubatubapraiagrande.com.br/";
+  const shareImg = `${siteUrl}share-card.webp`;
+
+  // JSON-LD: ItemList com os imóveis (aparece como lista de resultados ricos)
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: listaOrdenada.map((ap, idx) => ({
+      "@type": "ListItem",
+      position: idx + 1,
+      url: `${siteUrl}${ap.slug}`,
+      item: {
+        "@type": "Apartment",
+        name: ap.nome,
+        url: `${siteUrl}${ap.slug}`,
+        image: `${siteUrl}assets/img/${ap.pasta}/${ap.prefixo}1.webp`,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Ubatuba",
+          addressRegion: "SP",
+          addressCountry: "BR",
+        },
+      },
+    })),
+  };
+
+  // JSON-LD: WebPage com imagem principal grande (ajuda thumb na SERP/Discover)
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": siteUrl,
+    url: siteUrl,
+    name: "Ap Ubatuba Locação Temporada",
+    description:
+      "Apartamentos para temporada em Ubatuba com vista para o mar. Conforto, segurança e localização excelente na Praia Grande.",
+    inLanguage: "pt-BR",
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: shareImg,
+      width: 1200,
+      height: 630,
+    },
+    thumbnailUrl: shareImg,
+  };
 
   return (
     <>
@@ -30,8 +76,12 @@ export default function Home() {
         {/* 🤖 SEO técnico */}
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://apubatubapraiagrande.com.br/" />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta
+          name="googlebot"
+          content="index, follow, max-image-preview:large"
+        />
+        <link rel="canonical" href={siteUrl} />
 
         {/* 📱 Ícones para navegador e dispositivos */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -58,17 +108,12 @@ export default function Home() {
           property="og:description"
           content="Encontre o apartamento ideal para suas férias em Ubatuba. Veja fotos, localizações e reserve direto."
         />
-        <meta
-          property="og:image"
-          content="https://apubatubapraiagrande.com.br/share-card.webp"
-        />
+        <meta property="og:image" content={shareImg} />
+        <meta property="og:image:secure_url" content={shareImg} />
         <meta property="og:image:type" content="image/webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta
-          property="og:url"
-          content="https://apubatubapraiagrande.com.br/"
-        />
+        <meta property="og:url" content={siteUrl} />
 
         {/* 🐦 Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -77,17 +122,32 @@ export default function Home() {
           name="twitter:description"
           content="Apartamentos para alugar na Praia Grande em Ubatuba. Conforto, localização e praticidade."
         />
+        <meta name="twitter:image" content={shareImg} />
         <meta
-          name="twitter:image"
-          content="https://apubatubapraiagrande.com.br/share-card.webp"
+          name="twitter:image:alt"
+          content="Vista e acomodações de temporada em Ubatuba"
+        />
+
+        {/* 📚 JSON-LD (WebPage + ItemList) */}
+        <script
+          type="application/ld+json"
+          // WebPage
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          // ItemList (imóveis)
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
         />
       </Head>
 
       <Header />
+
       <Hero
         titulo="Conheça nossos apartamentos"
         subtitulo="Escolha seu destino ideal e aproveite a melhor estadia em Praia Grande - Ubatuba."
       />
+
       <div className="px-4 mt-6">
         <WeatherCard />
       </div>
@@ -105,25 +165,22 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.2 }}
-                className={`relative rounded-2xl overflow-hidden 
-      ${
-        index < 3
-          ? "shadow-[0_0_30px_rgba(255,212,59,0.5),0_10px_45px_rgba(255,212,59,0.3)]"
-          : "shadow-[0_4px_30px_rgba(0,0,0,0.25)]"
-      }`}
+                className={`relative rounded-2xl overflow-hidden ${
+                  index < 3
+                    ? "shadow-[0_0_30px_rgba(255,212,59,0.5),0_10px_45px_rgba(255,212,59,0.3)]"
+                    : "shadow-[0_4px_30px_rgba(0,0,0,0.25)]"
+                }`}
               >
                 <div className="relative w-full h-48 md:h-52 lg:h-56">
                   <Image
                     src={`/assets/img/${ap.pasta}/${ap.prefixo}1.webp`}
                     alt={`Imagem de capa do ${ap.nome}`}
-                    width={1200} // largura "máxima" da fonte (arbitrária alta)
-                    height={800} // mantenha a proporção (ex.: 3:2, 16:9…)
-                    sizes="(max-width: 640px) 100vw,
-         (max-width: 1152px) 50vw,
-         33vw"
+                    width={1200}
+                    height={800}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1152px) 50vw, 33vw"
                     quality={75}
                     className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105 group-hover:brightness-110"
-                    priority={index === 0} // só o primeiro card acima da dobra como prioridade
+                    priority={index === 0}
                     fetchPriority="high"
                   />
                   <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/70 to-transparent text-white px-4 py-3">
@@ -140,10 +197,13 @@ export default function Home() {
           ))}
         </section>
       </main>
+
       <div className="px-4 mt-6">
         <OndeEstamos />
       </div>
+
       <BotaoWhats msg="Olá! Seja muito bem-vindo(a)! 😊 Agradecemos pelo seu contato. Para que possamos atendê-lo(a) da melhor forma, poderia, por gentileza, informar o número de pessoas e a data desejada para a sua estadia?" />
+
       <BackToTop />
       <Footer />
     </>
