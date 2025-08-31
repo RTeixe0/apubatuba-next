@@ -146,7 +146,7 @@ export function Footer() {
         <p className="mt-1">
           Desenvolvido por{" "}
           <a
-            href="https://github.com/RTeixe0"
+            href="https://renanteixeira.dev/"
             target="_blank"
             rel="noopener"
             className="font-semibold underline decoration-dotted underline-offset-2 transition-all duration-200 hover:text-[var(--accent)] hover:drop-shadow-[0_0_6px_var(--accent)]"
